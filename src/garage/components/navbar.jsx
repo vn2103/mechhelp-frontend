@@ -45,25 +45,24 @@ const Navbar = ({ setActivePage }) => {
     } else {
       setOpenDropdown("");
       setActiveItem(item.name);
-      setActiveSubItem(""); // Clear active sub-item when selecting a main item
+      setActiveSubItem("");
       setActivePage(item.name);
     }
   };
 
   const handleDropdownItemClick = (item, subItem) => {
-    setActiveItem(item.name); // Keep the main item active
-    setActiveSubItem(subItem.name); // Set the active sub-item
-    setActivePage(subItem.name); // Update the active page
-    setOpenDropdown(""); // Close the dropdown
+    setActiveItem(item.name);
+    setActiveSubItem(subItem.name);
+    setActivePage(subItem.name);
+    setOpenDropdown("");
   };
 
   const handleHamburgerClose = () => {
-    setIsMenuOpen(false); // Close the menu
-    setOpenDropdown(""); // Close all dropdowns
+    setIsMenuOpen(false);
+    setOpenDropdown("");
   };
 
   const handleClickOutside = (event) => {
-    // Close the dropdown if the click is outside the navbar
     if (
       !event.target.closest(".navbar") &&
       !event.target.closest(".dropdown-item")
@@ -82,16 +81,18 @@ const Navbar = ({ setActivePage }) => {
   return (
     <div className="relative">
       {/* Hamburger Menu for Phones */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-[rgba(255,130,14,1)] text-white shadow-lg"
-      >
-        <Icon
-          icon={isMenuOpen ? "mdi:close" : "mdi:hamburger-menu"}
-          width={30}
-          height={30}
-        />
-      </button>
+      {!isMenuOpen && (
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-[rgba(255,130,14,1)] text-white shadow-lg"
+        >
+          <Icon
+            icon="mdi:hamburger-menu"
+            width={30}
+            height={30}
+          />
+        </button>
+      )}
 
       {/* Navbar */}
       <nav
@@ -119,7 +120,7 @@ const Navbar = ({ setActivePage }) => {
           }}
           startIcon={<DiamondIcon />}
         >
-          Explore Plans
+          <span className="inline md:hidden lg:inline">Explore Plans</span>
         </Button>
 
         {/* Menu Items */}
@@ -131,7 +132,7 @@ const Navbar = ({ setActivePage }) => {
               onClick={() => handleMenuClick(item)}
             >
               <div
-                className={`flex items-center justify-between gap-3 cursor-pointer px-4 py-3 mt-3 rounded-lg transition duration-200 ${
+                className={`flex items-center justify-between gap-3 cursor-pointer px-2 py-3 mt-3 rounded-lg transition duration-200 ${
                   activeItem === item.name ||
                   (item.type === "dropdown" &&
                     item.items.some((sub) => sub.name === activeSubItem))
@@ -152,7 +153,7 @@ const Navbar = ({ setActivePage }) => {
                         : "text-[rgba(255,130,14,1)]"
                     }`}
                   />
-                  <span className="hidden lg:inline">{item.name}</span>
+                  <span className=" inline md:hidden lg:inline">{item.name}</span>
                 </div>
                 {item.type === "dropdown" && (
                   <Icon
