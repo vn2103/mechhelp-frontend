@@ -2,10 +2,12 @@ import React from "react";
 import { Box1 } from "./ds compo/box1";
 import { Icon } from "@iconify/react";
 import Dropdown from "./ds compo/range";
-import InventoryReport from "./ds compo/sale";
+import MultiChart from "./ds compo/sale";
 import BookingsTable from "./ds compo/BookingTable";
 import DonutChart from "./ds compo/report";
+import CustomCalendar from "./ds compo/Customcalender";
 import MultiStackedBarChart from "./ds compo/weekrepo";
+import JobCardTemplate from "./ds compo/JobcardDetails";
 
 export const Dashboard = () => {
   // Months array for the dropdown
@@ -32,7 +34,7 @@ export const Dashboard = () => {
       {/* Main Content Section */}
       <div className="flex flex-wrap justify-between w-full mt-3 gap-4">
         {/* Left Section (Overall Sales and Bookings Table) */}
-        <div className="w-full lg:w-[65%] flex-col">
+        <div className="w-full lg:w-[65.5%] flex-col">
           {/* Overall Sales */}
           <div className="h-[40vh] mb-4 p-7 flex flex-col justify-between rounded-md bg-white shadow-md">
             <div className="flex justify-between flex-wrap gap-4">
@@ -70,7 +72,7 @@ export const Dashboard = () => {
 
             {/* Sales Chart */}
             <div>
-              <InventoryReport />
+              <MultiChart />
             </div>
           </div>
 
@@ -81,7 +83,7 @@ export const Dashboard = () => {
         </div>
 
         {/* Right Section (Sales Report and Weekly Summary) */}
-        <div className="w-full lg:w-[30%] flex flex-col">
+        <div className="w-full lg:w-[31.4%] flex flex-col">
           {/* Sales Report */}
           <div className="h-[40vh] mb-4 p-4 flex flex-col justify-around items-center rounded-md bg-white shadow-md">
             <div className="flex justify-between">
@@ -139,6 +141,7 @@ export const Dashboard = () => {
           </div>
         </div>
       </div>
+      <JobCardTemplate/>
     </div>
   );
 };

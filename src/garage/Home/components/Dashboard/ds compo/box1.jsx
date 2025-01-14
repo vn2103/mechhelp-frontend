@@ -16,7 +16,7 @@ export const Box1 = () => {
       {Items.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col justify-between p-7 w-[370px] h-[200px] flex-shrink-0 rounded-md bg-white shadow-md"
+          className="flex flex-col justify-between p-7 w-[370px] h-[180px] flex-shrink-0 rounded-md bg-white shadow-md"
         >
           {/* Top Section */}
           <div className="flex justify-between">

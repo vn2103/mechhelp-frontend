@@ -1,6 +1,15 @@
 import React from "react";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend } from "chart.js";
-import { Line, Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  BarElement,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
 // Register required Chart.js components
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Tooltip, Legend);
@@ -69,7 +78,7 @@ const MultiChart = () => {
     plugins: {
       tooltip: {
         callbacks: {
-          label: (context) => `₹ ${context.raw.toLocaleString()}`
+          label: (context) => `₹ ${context.raw.toLocaleString()}`,
         },
       },
       legend: { display: false },
@@ -77,7 +86,7 @@ const MultiChart = () => {
   };
 
   return (
-    <div style={{ height: "170px", width: "100%" }}>
+    <div className="w-full relative h-[25vh]">
       <Line data={data} options={options} />
     </div>
   );
