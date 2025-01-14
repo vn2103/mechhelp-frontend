@@ -13,6 +13,7 @@ import { Help } from "./components/Setting/Help";
 import { Notification } from "./components/Setting/Notification";
 import { Profile } from "./components/Setting/Profile";
 import Staff from "./components/Staff Management/Staff";
+
 const Home = () => {
   const [activePage, setActivePage] = useState("Dashboard");
 
@@ -30,13 +31,13 @@ const Home = () => {
       case "Mechhelp Spares":
         return <Spares />;
       case "Customers":
-        return <Customer />; // Corrected to match the imported component
+        return <Customer />;
       case "Online Booking":
         return <Book />;
       case "Profile":
         return <Profile />;
       case "Notifications":
-        return <Notification />; // Corrected to match the imported component
+        return <Notification />;
       case "Billing":
         return <Billing />;
       case "Help & Support":
@@ -54,7 +55,7 @@ const Home = () => {
 
       <div className="flex-1 flex flex-col">
         <Header />
-        <main className="flex justify-around overflow-y-auto">
+        <main className="flex justify-around  lg:overflow-y-auto md:overflow-y-auto ">
           <div className="grid grid-cols-1 w-[100%] gap-6">{renderContent()}</div>
         </main>
       </div>
