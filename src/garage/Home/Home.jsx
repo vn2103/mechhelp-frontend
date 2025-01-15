@@ -50,13 +50,17 @@ const Home = () => {
   };
 
   return (
-    <div className="flex h-screen bg-[rgba(245, 245, 245, 1)]">
+    <div className="flex flex-col md:flex-row w-screen h-screen bg-[rgba(245, 245, 245, 1)] overflow-hidden">
+      {/* Navbar */}
       <Navbar setActivePage={setActivePage} />
 
-      <div className="flex-1 flex flex-col">
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col overflow-y-auto">
         <Header />
-        <main className="flex justify-around  lg:overflow-y-auto md:overflow-y-auto ">
-          <div className="grid grid-cols-1 w-[100%] gap-6">{renderContent()}</div>
+        <main className="flex justify-center px-4 py-4 md:px-6 md:py-6 lg:px-8 lg:py-8 overflow-y-auto">
+          <div className="w-full max-w-[1200px] grid grid-cols-1 gap-4 md:gap-5 lg:gap-6">
+            {renderContent()}
+          </div>
         </main>
       </div>
     </div>

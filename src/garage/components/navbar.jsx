@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import Button from "@mui/material/Button";
 import DiamondIcon from "@mui/icons-material/Diamond";
 import logo from "../../assets/logo.svg";
-
+import './navbar.css'
 const Navbar = ({ setActivePage }) => {
   const [activeItem, setActiveItem] = useState("Dashboard");
   const [activeSubItem, setActiveSubItem] = useState("");
@@ -124,7 +124,7 @@ const Navbar = ({ setActivePage }) => {
         </Button>
 
         {/* Menu Items */}
-        <div className="flex flex-col p-3 px-6 mt-10 relative">
+        <div className="flex flex-col  p-3 px-6 mt-10 relative">
           {menuItems.map((item) => (
             <div
               key={item.name}
